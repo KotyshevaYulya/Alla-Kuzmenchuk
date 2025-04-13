@@ -20,3 +20,8 @@ accordionButtons.forEach(button => {
         }
     });
 });
+
+
+Fancybox.bind("[data-fancybox='gallery']", {
+    // опції за бажанням
+});
