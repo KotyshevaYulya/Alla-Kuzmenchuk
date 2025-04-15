@@ -5,14 +5,13 @@ accordionButtons.forEach(button => {
         const isExpanded = button.getAttribute('aria-expanded') === 'true';
         const content = button.nextElementSibling;
 
-        // Закриваємо всі акордеони
         accordionButtons.forEach(btn => {
             btn.setAttribute('aria-expanded', false);
             btn.nextElementSibling.classList.remove('open');
             btn.nextElementSibling.style.maxHeight = null;
         });
 
-        // Якщо поточний був закритий — відкриваємо
+
         if (!isExpanded) {
             button.setAttribute('aria-expanded', true);
             content.classList.add('open');
@@ -22,6 +21,15 @@ accordionButtons.forEach(button => {
 });
 
 
-Fancybox.bind("[data-fancybox='gallery']", {
-    // опції за бажанням
+Fancybox.bind('[data-fancybox="gallery"]', {
+});
+
+document.addEventListener('contextmenu', function (e) {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+    }
+});
+
+document.querySelectorAll('img').forEach((img) => {
+    img.setAttribute('draggable', 'false');
 });
